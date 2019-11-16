@@ -7,7 +7,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarouselComponent } from './src/app/carousel/carousel.component';
+import { CarouselComponent } from './shared/components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
