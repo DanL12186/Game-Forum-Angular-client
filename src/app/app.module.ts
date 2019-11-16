@@ -3,12 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CarouselComponent } from './src/app/carousel/carousel.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CarouselComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -16,6 +21,8 @@ import { AppComponent } from './app.component';
     MDBBootstrapModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [CarouselComponent],
+  entryComponents: [CarouselComponent]
 })
 export class AppModule { }
