@@ -7,12 +7,10 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarouselComponent } from './src/app/carousel/carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarouselComponent,
     NavbarComponent
   ],
   imports: [
@@ -22,7 +20,5 @@ import { CarouselComponent } from './src/app/carousel/carousel.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [CarouselComponent],
-  entryComponents: [CarouselComponent]
 })
 export class AppModule { }
