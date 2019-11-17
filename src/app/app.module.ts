@@ -7,7 +7,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarouselPopularComponent } from './shared/components/carousel-popular/carousel-popular.component';
+import { CarouselPopularComponent } from './carousel-popular/carousel-popular.component';
 
 @NgModule({
   declarations: [
