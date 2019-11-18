@@ -3,9 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { GamesComponent } from './games/games.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '', component: HomePageComponent, redirectTo: '', pathMatch: 'full' },
   { path: 'games', component: GamesComponent, pathMatch: 'full'},
 ];
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

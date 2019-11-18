@@ -7,10 +7,10 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarouselPopularComponent } from './carousel-popular/carousel-popular.component';
 import { CarouselNewComponent } from './carousel-new/carousel-new.component';
-
+import { CarouselPopularComponent } from './carousel-popular/carousel-popular.component';
 import { GamesComponent } from './games/games.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { GamesComponent } from './games/games.component';
     CarouselPopularComponent,
     CarouselNewComponent,
     NavbarComponent,
-    GamesComponent
+    GamesComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
