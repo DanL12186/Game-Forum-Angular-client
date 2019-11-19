@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarouselNewComponent } from './carousel-new/carousel-new.component';
@@ -22,6 +22,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     HomePageComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot()
