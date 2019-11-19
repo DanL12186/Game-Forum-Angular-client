@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarouselNewComponent } from './carousel-new/carousel-new.component';
 import { CarouselPopularComponent } from './carousel-popular/carousel-popular.component';
+import { GamesComponent } from './games/games.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     CarouselPopularComponent,
     CarouselNewComponent,
     NavbarComponent,
+    GamesComponent,
     HomePageComponent,
   ],
   imports: [

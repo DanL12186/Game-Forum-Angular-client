@@ -1,3 +1,26 @@
+$nav-brand: #3f51b5;
+$nav-brand-hover: rgb(37, 31, 122);
+
 .nav-link.waves-light {
-    font-family: Times;
+    font-family: "Courier";
+    &:hover {
+        background-color: $nav-brand-hover;
+    }
+}
+
+//center search text
+.mr-sm-2 {
+    text-align: center;
+}
+
+.dropdown-menu {
+    background-color: $nav-brand;
+
+    .dropdown-item.waves-light {
+        color: white;
+        
+        &:hover {
+            background-color: $nav-brand-hover;
+        }
+    }
 }
