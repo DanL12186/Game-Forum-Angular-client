@@ -1,7 +1,7 @@
 
 <!-- Default form register -->
 <div class = "container">
-<form class="text-center border border-light p-5" action="#!">
+<form class="text-center border border-light p-5" action="#!" (ngSubmit)="onSubmit()">
        
 
 
@@ -29,13 +29,7 @@
         At least 8 characters and 1 digit
     </small>
 
-    <!-- Phone number -->
-    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-        Optional - for two step authentication
-    </small>
-
-    <!-- Newsletter -->
+   <!-- Newsletter -->
     
     <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
