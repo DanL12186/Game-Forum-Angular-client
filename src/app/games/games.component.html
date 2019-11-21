@@ -1,1 +1,27 @@
-<h1 class='text-white text-center'> Games List </h1>>
+<div class='container'>
+
+    <h1 class='text-white text-center'> Games List </h1>
+
+    <button (click) = "sortByProperty('name')" class="btn-sm"> Sort By Name </button>
+
+    <div class='games' *ngFor="let game of games">
+        <div *ngIf="game.name">
+        
+        <div class='game'>
+
+            <div class='text-white'>
+                <img class='game-thumb' src='{{ game.cover.url }}' >
+
+                <div> 
+                    <a href="{{ game.url }}" target="_blank" rel="noreferrer"> {{ game.name }} - {{ game.release_dates[0].y }} </a> 
+                </div>
+
+                <p> {{ game.summary }} </p>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+</div>
