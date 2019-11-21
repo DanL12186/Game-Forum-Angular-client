@@ -14,22 +14,24 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { CarouselNewComponent } from './carousel-new/carousel-new.component';
 import { CarouselPopularComponent } from './carousel-popular/carousel-popular.component';
 import { GamesComponent } from './games/games.component';
+import { GameComponent } from './game/game.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-
     NavbarComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
     CarouselPopularComponent,
     CarouselNewComponent,
     NavbarComponent,
     GamesComponent,
+    GameComponent,
     HomePageComponent,
   ],
   imports: [
+
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
