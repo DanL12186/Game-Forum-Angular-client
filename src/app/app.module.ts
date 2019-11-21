@@ -7,6 +7,10 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { LoginComponent } from './shared/components/login/login.component';
+import { RouterModule } from '@angular/router';
+import { SignUpComponent } from './sign-up/sign-up.component';
 import { CarouselNewComponent } from './carousel-new/carousel-new.component';
 import { CarouselPopularComponent } from './carousel-popular/carousel-popular.component';
 import { GamesComponent } from './games/games.component';
@@ -15,6 +19,10 @@ import { HomePageComponent } from './home-page/home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
+
+    NavbarComponent,
+    LoginComponent,
+    SignUpComponent
     CarouselPopularComponent,
     CarouselNewComponent,
     NavbarComponent,
@@ -26,7 +34,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot()
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent],
   exports: [CarouselPopularComponent],
