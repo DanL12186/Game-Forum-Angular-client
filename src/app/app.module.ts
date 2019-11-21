@@ -8,7 +8,6 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { WavesModule, TableModule } from 'angular-bootstrap-md';
 
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
-
 import { AppComponent } from './app.component';
 import { CarouselNewComponent } from './carousel-new/carousel-new.component';
 import { CarouselPopularComponent } from './carousel-popular/carousel-popular.component';
