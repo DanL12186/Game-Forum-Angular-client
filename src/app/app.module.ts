@@ -9,6 +9,10 @@ import { WavesModule, TableModule } from 'angular-bootstrap-md';
 
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { AppComponent } from './app.component';
+
+import { LoginComponent } from './shared/components/login/login.component';
+import { RouterModule } from '@angular/router';
+import { SignUpComponent } from './sign-up/sign-up.component';
 import { CarouselNewComponent } from './carousel-new/carousel-new.component';
 import { CarouselPopularComponent } from './carousel-popular/carousel-popular.component';
 import { GamesComponent } from './games/games.component';
@@ -20,7 +24,10 @@ import { MainPageComponent } from './shared/pages/main-page/main-page.component'
 @NgModule({
   declarations: [
     AppComponent,
-    CarouselPopularComponent,
+
+    NavbarComponent,
+    LoginComponent,
+    SignUpComponent,
     CarouselNewComponent,
     NavbarComponent,
     GamesComponent,
@@ -35,10 +42,8 @@ import { MainPageComponent } from './shared/pages/main-page/main-page.component'
     AppRoutingModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot()
-  ],
+    ],
   providers: [],
-  bootstrap: [AppComponent],
-  exports: [CarouselPopularComponent],
-  entryComponents: [CarouselPopularComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
