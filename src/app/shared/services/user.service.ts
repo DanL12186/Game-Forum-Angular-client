@@ -39,10 +39,8 @@ export class UserService {
       password : password,
       
 }
-
   
     const url = 'http://localhost:8080/user';
-
 
     this.httpClient.post(url, SignUPcredentials)
       .subscribe(data=>{
