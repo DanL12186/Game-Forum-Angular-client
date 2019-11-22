@@ -20,6 +20,7 @@ import { GameComponent } from './game/game.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { GameCardTableComponent } from './shared/components/game-card-table/game-card-table.component';
 import { MainPageComponent } from './shared/pages/main-page/main-page.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { MainPageComponent } from './shared/pages/main-page/main-page.component'
     GameComponent,
     HomePageComponent,
     GameCardTableComponent,
-    MainPageComponent
+    MainPageComponent,
+    GameDetailComponent
   ],
   imports: [
     HttpClientModule,
