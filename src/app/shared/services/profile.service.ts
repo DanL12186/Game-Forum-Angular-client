@@ -20,7 +20,7 @@ const tabs ={
   friends : friends
 }
 
-const url = 'http://localhost:8080/user/login';
+const url = '';
 }
 
 
