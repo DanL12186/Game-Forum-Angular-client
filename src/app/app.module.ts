@@ -28,6 +28,7 @@ import { MainPageComponent } from './shared/pages/main-page/main-page.component'
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { MainPageComponent } from './shared/pages/main-page/main-page.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    
     ],
   providers: [],
   bootstrap: [AppComponent]
