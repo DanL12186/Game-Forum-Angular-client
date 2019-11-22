@@ -1,4 +1,5 @@
-<h1 class='text-white'> games </h1>
+<app-navbar></app-navbar>
+
 <!-- <h1> {{ game.title }} </h1>
 
 <div ngFor="let review of reviews">
@@ -9,19 +10,19 @@
 <div class="jumbotron text-center container">
 
         <!-- Title -->
-        <h4 class="card-title h4 pb-2"><strong>Game.name</strong></h4>
+        <h4 class="card-title h4 pb-2"><strong> {{ game.name }} </strong></h4>
       
         <!-- Card image -->
         <div class="view overlay my-4">
-          <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" class="img-fluid" alt="">
-          <a href="#">
+          <img src="{{ game.cover.url.replace('thumb', 'screenshot_huge') }}" class="img-fluid" alt="{{ game.name }}">
+          <a href="{{ game.url }}">
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
       
-        <h5 class="indigo-text h5 mb-4">Game.release_date</h5>
+        <h5 class="indigo-text h5 mb-4"> {{ game.release_date }} </h5>
       
-        <p class="card-text">Game.summary</p>
+        <p class="card-text"> {{ game.summary }} </p>
       
       </div>
     <!-- Jumbotron -->
