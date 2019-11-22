@@ -1,18 +1,18 @@
-<!--Carousel Wrapper-->
 <div class="container">
     <mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
-        <!--First slide-->
+
         <mdb-slide *ngFor="let game of gameArray">
             <div class="view">
-                <!-- <mdb-card-img class='popular-img' [src]="game.cover.url.replace('thumb', 'screenshot_med_2x')" alt="Card image cap"></mdb-card-img> -->
-                <a routerLink = ""> <img class="d-block w-100 popular-img" src="{{ game.cover.url.replace('thumb', 'screenshot_med_2x') }}" alt="First slide"></a>
-                <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+                <img class="d-block w-100 popular-img" src="{{ game.cover.url.replace('thumb', 'screenshot_med_2x') }}" alt="{{ game.name }}">
+
+                <a routerLink = "/games/{{game.name}}" class="mask rgba-black-light waves-light" mdbWavesEffect></a>
             </div>
+            
             <div class="carousel-caption">
                 <h3 class="h3-responsive game-name"> {{ game.name }} </h3>
                 <p class='game-summary'> {{ game.summary }} </p>
             </div>
         </mdb-slide>
+        
     </mdb-carousel>
-    <!--/.Carousel Wrapper-->  
 </div>
