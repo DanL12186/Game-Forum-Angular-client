@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GamesComponent } from './games/games.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { GameCardTableComponent } from './shared/components/game-card-table/game-card-table.component';
 import { MainPageComponent } from './shared/pages/main-page/main-page.component';
@@ -13,10 +13,13 @@ const routes: Routes = [
     component: MainPageComponent},
   { path: 'home',
     component: HomePageComponent},
-  { path: 'games', 
-    component: GamesComponent},
   { path: 'game-table',
-    component: GameCardTableComponent}
+    component: GameCardTableComponent
+  },
+  {
+    path: 'games/:name',
+    component: GameDetailComponent
+  }
 ];
 @NgModule({
   imports:[RouterModule.forRoot(routes)],
