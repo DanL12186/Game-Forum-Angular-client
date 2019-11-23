@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { GameData } from '../modules/gameData';
 import { Subject, Observable, Subscription } from 'rxjs';
 
@@ -23,7 +23,6 @@ export class GamePageService {
 
   ngOnInit() { }
 
-
   async getGame() {
     const url : string = 'http://localhost:8080/IGDB';
     let newGamesArray : GameData[] = [];
@@ -34,12 +33,13 @@ export class GamePageService {
 
     this.gameSubscription = await this.httpClient.get(url)
       .subscribe((data : GameData[]) => {
-        data.forEach( function(data) {
+        data.forEach(data => 
           newGamesArray.push(data)
-        });
+        );
     });
     console.log("New Games Array (getGame())");
     console.log(newGamesArray);
     this.gamesSubject.next(newGamesArray);
   }
+  
 }

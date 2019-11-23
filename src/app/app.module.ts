@@ -15,9 +15,6 @@ import { RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { CarouselNewComponent } from './carousel-new/carousel-new.component';
 import { CarouselPopularComponent } from './carousel-popular/carousel-popular.component';
-import { GamesComponent } from './games/games.component';
-import { GameComponent } from './game/game.component';
-import { HomePageComponent } from './home-page/home-page.component';
 import { GameCardTableComponent } from './shared/components/game-card-table/game-card-table.component';
 import { MainPageComponent } from './shared/pages/main-page/main-page.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
@@ -33,9 +30,6 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     CarouselPopularComponent,
     CarouselNewComponent,
     NavbarComponent,
-    GamesComponent,
-    GameComponent,
-    HomePageComponent,
     GameCardTableComponent,
     MainPageComponent,
     GameDetailComponent,

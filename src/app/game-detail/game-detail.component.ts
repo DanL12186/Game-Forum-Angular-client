@@ -13,8 +13,8 @@ export class GameDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private httpClient: HttpClient) { }
 
   async findGamebyName() {
-    const gameTitle = this.route.snapshot.paramMap.get('name');
-    const url : string = `http://localhost:8080/IGDB/search`;
+    const gameTitle: string = this.route.snapshot.paramMap.get('name');
+    const url: string = `http://localhost:8080/IGDB/search`;
     
     const searchResults = await this.httpClient
                                     .post(url, `"${gameTitle}"`)
