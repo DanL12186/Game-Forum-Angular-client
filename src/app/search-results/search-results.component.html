@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+
+<div class='container'>
+
+    <h1 class='text-white text-center'> Games List </h1>
+
+    <button (click) = "sortByProperty('name')" class="btn-sm sort-btn"> Sort By Name </button>
+    <!-- <button (click) = "sortByProperty('popularity')" class="btn-sm sort-btn"> Sort By Popularity </button> -->
+    
+    <div class='games text-center' *ngFor="let game of gameSearchResults">
+        <div *ngIf="game.name && game.cover">
+        
+            <div class='game'>
+
+                <div class='text-white'>
+                    <img class='game-thumb' src='{{ game.cover.url }}'>
+
+                    <div class = 'game-title'>
+                        <div *ngIf="game.name">
+                            <a href="/games/{{game.name}}"> {{ game.name }} - {{ game.release_dates[0].y }} </a>
+                        </div>
+                    </div>
+
+                    <p> {{ game.summary }} </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
