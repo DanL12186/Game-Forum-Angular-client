@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 // ----- Services
 import { UserService } from 'src/app/services/user.service';
+// ----- Modules
+import { Credentials } from 'src/app/modules/credentials';
 
 
 @Component({
@@ -43,10 +45,12 @@ export class NavbarComponent implements OnInit {
   get passwordFormEx() { return this.validationForm.get('passwordInput'); }
 
   authenticate() {
-    let username : string = this.validationForm.controls['usernameInput'].value;
-    let password : string = this.validationForm.controls['passwordInput'].value;
+    let credentials : Credentials = {
+      username : this.validationForm.controls['usernameInput'].value,
+      password : this.validationForm.controls['passwordInput'].value
+    }
 
-    this.userService.login(username, password);
+    this.userService.login(credentials);
   }
 
 }
