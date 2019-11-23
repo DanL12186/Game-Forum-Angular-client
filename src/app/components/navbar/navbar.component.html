@@ -1,0 +1,113 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+
+    <mdb-navbar-brand>
+      <div>
+        <h1 class="h4 text-light text-uppercase">
+          <span>
+            <img src="https://icon-library.net/images/super-nintendo-icon/super-nintendo-icon-3.jpg" height="32"
+              class="d-inline-block align-top" alt="">
+          </span> Project Title</h1>
+      </div>
+    </mdb-navbar-brand>
+  
+    <mdb-icon fas icon="angle-left" size="lg" class="text-white mr-auto d-flex d-md-none align-self-center"></mdb-icon>
+  
+    <!-- Collapsible content -->
+    <links>
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect (click)="basicModal.show()" mdbWavesEffect data-toggle="modal"
+            data-target="#basicExampleModal">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect (click)="route(0)">Signup</a>
+        </li>
+  
+        <!-- Dropdown Menu -->
+        <li class="nav-item dropdown" dropdown>
+  
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+            Tools <span class="caret"></span>
+          </a>
+  
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Account Settings</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="/games">Game Browser</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Something else here</a>
+            <div class="divider dropdown-divider"></div>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
+          </div>
+        </li>
+  
+      </ul>
+      <!-- Links -->
+  
+      <!-- Search form -->
+      <form class="form-inline waves-light" mdbWavesEffect>
+        <div class="md-form my-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        </div>
+      </form>
+    </links>
+    <!-- Collapsible content -->
+  
+  
+  </mdb-navbar>
+  
+  <div mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog"
+    aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-right" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100 text-primary text-center" id="myModalLabel"><strong>Sign In</strong></h4>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="validationForm">
+  
+            <!-- Username -->
+            <div class="md-form">
+              <mdb-icon fas icon="user-circle blue-text"></mdb-icon>
+              <input mdbInput mdbValidate type="text" class="form-control" formControlName="usernameInput"
+                placeholder="Username">
+            </div>
+  
+            <!-- Password -->
+            <div class="md-form">
+              <mdb-icon fas icon="lock blue-text"></mdb-icon>
+              <input mdbInput mdbValidate type="password" class="form-control" formControlName="passwordInput"
+                placeholder="Password">
+            </div>
+  
+            <!-- Additional options -->
+            <div class="d-flex justify-content-around">
+              <div>
+                <!-- Remember me -->
+                <div class="custom-control custom-checkbox text-primary">
+                    <mdb-checkbox formControlName="RememberMe" [default]="true">Remember me</mdb-checkbox>
+                </div>
+              </div>
+              <div>
+                <!-- Forgot password -->
+                <a href="">Forgot password?</a>
+              </div>
+            </div>
+  
+          </form>
+  
+          <div class="row justify-content-md-center">
+            <button type="button" mdbBtn class="relative waves-light btn btn-primary btn-block m-4"
+              (click)="authenticate()" mdbWavesEffect>Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,49 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+// ----- Routing/HTTP
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-
+// ----- MDBBootstrap
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { WavesModule, TableModule } from 'angular-bootstrap-md';
-
-import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { MDBBootstrap } from './mdbbootstrap';
+// ----- Components
 import { AppComponent } from './app.component';
-
-import { LoginComponent } from './shared/components/login/login.component';
-import { RouterModule } from '@angular/router';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { CarouselNewComponent } from './carousel-new/carousel-new.component';
-import { CarouselPopularComponent } from './carousel-popular/carousel-popular.component';
-import { GamesComponent } from './games/games.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { GameCardTableComponent } from './shared/components/game-card-table/game-card-table.component';
-import { MainPageComponent } from './shared/pages/main-page/main-page.component';
-
+import { GameCardTableComponent } from './components/game-card-table/game-card-table.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SignUpCardComponent } from './components/sign-up-card/sign-up-card.component';
+// ----- Pages 
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
+// ----- Services
+import { UserService } from './services/user.service';
+import { GamePageService } from './services/game-page.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-
-    NavbarComponent,
-    LoginComponent,
-    SignUpComponent,
-    CarouselNewComponent,
-    NavbarComponent,
-    GamesComponent,
-    HomePageComponent,
     GameCardTableComponent,
-    MainPageComponent
+    NavbarComponent,
+    SignUpCardComponent,
+    MainPageComponent,
+    SignUpPageComponent
   ],
   imports: [
-    WavesModule,
-    TableModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MDBBootstrap,
     MDBBootstrapModule.forRoot()
-    ],
-  providers: [],
+  ],
+  providers: [UserService, GamePageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
