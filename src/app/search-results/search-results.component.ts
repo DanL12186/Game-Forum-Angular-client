@@ -28,7 +28,7 @@ export class SearchResultsComponent implements OnInit {
   }
 
   sortByProperty(property: string) {
-    this.gameSearchResults.sort((a : string, b : string) => a[property].localeCompare(b[property]));
+    this.gameSearchResults.sort((a : string, b : string) => a[property].toString().localeCompare(b[property]).toString());
 
     if (this.propertySortedAsc[property]) {
       this.gameSearchResults = this.gameSearchResults.reverse();
