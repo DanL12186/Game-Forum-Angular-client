@@ -1,7 +1,12 @@
 <app-navbar></app-navbar>
 
 <div class='container'>
- <div class='text-white'> {{ review.description }}</div>
+
+    <div class='text-center text-white'>
+        <h1> Review by {{ review.user.username }}: </h1>
+        <h2> Rating: {{ review.rating }}% </h2>
+        <div class='text-white'> -"{{ review.description }}"</div>
+    </div>
     <div *ngFor="let comment of comments">
 
         <mdb-card class='thin'>
@@ -11,8 +16,8 @@
             <mdb-card-body>
 
             <div class='text-center'>
-                <h4 class='review-text'>{{ comment.user.username }}</h4>
-                <h4> says: {{ comment.description }}</h4>
+                <h4 class='review-text'>{{ comment.user.username }} says:</h4>
+                <p> "{{ comment.description }}"</p>
             </div>
         
             </mdb-card-body>
