@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<div class='container'>
+ <div class='text-white'> {{ review.description }}</div>
+    <div *ngFor="let comment of comments">
+
+        <mdb-card class='thin'>
+            <!--Card image-->
+            <mdb-card-img src="https://ecsphilly.org/app/uploads/2017/01/blank-profile-picture-973460_960_720.jpg" alt="Card image cap"></mdb-card-img>
+            <!--Card content-->
+            <mdb-card-body>
+
+            <div class='text-center'>
+                <h4 class='review-text'>{{ comment.user.username }}</h4>
+                <h4> says: {{ comment.description }}</h4>
+            </div>
+        
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+</div>

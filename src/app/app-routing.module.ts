@@ -4,6 +4,7 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 import { GameCardTableComponent } from './shared/components/game-card-table/game-card-table.component';
 import { MainPageComponent } from './shared/pages/main-page/main-page.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { CommentComponent } from './comment/comment.component';
 
 const routes: Routes = [
   { path: '', 
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'search-results',
     component: SearchResultsComponent
+  },
+  {
+    path: 'reviews/:id/comments',
+    component: CommentComponent
   }
 ];
 @NgModule({
