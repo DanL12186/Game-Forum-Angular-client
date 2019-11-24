@@ -17,7 +17,9 @@
                 <div class='game'>
 
                     <div class='text-white'>
-                        <img class='game-thumb' src='{{ game.cover.url.replace("thumb", "thumb_2x") }}'>
+                        <a href="/games/{{game.name}}">
+                            <img class='game-thumb' src='{{ game.cover.url.replace("thumb", "thumb_2x") }}'>
+                        </a>
 
                         <div class = 'game-title'>
                             <div *ngIf="game.name">

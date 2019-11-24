@@ -1,28 +1,29 @@
 <app-navbar></app-navbar>
 
-<!-- <h1> {{ game.title }} </h1>
-
-<div ngFor="let review of reviews">
-    <a routerLink="/reviews/{{ review.url }}">{{ review.title }}</a>
-</div> -->
-
 <!-- Jumbotron -->
 <div class="jumbotron text-center container">
 
-        <!-- Title -->
-        <h4 class="card-title h4 pb-2"><strong> {{ game.name }} </strong></h4>
-      
-        <!-- Card image -->
-        <div class="view overlay my-4">
-          <img src="{{ game.cover.url.replace('thumb', 'screenshot_huge') }}" class="img-fluid" alt="{{ game.name }}">
-          <a href="{{ game.url }}" target="_blank" rel="noopener noreferrer">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-      
-        <h5 class="indigo-text h5 mb-4"> {{ game.release_date }} </h5>
-      
-        <p class="card-text"> {{ game.summary }} </p>
-      
-      </div>
-    <!-- Jumbotron -->
+    <!-- Title -->
+    <h4 class="card-title h4 pb-2"><strong> {{ game.name }} </strong></h4>
+  
+    <!-- Card image -->
+    <div class="view overlay my-4">
+      <img src="{{ game.cover.url.replace('thumb', 'screenshot_huge') }}" class="img-fluid" alt="{{ game.name }}">
+      <a href="{{ game.url }}" target="_blank" rel="noopener noreferrer">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+  
+    <h5 class="indigo-text h5 mb-4"> {{ game.release_date }} </h5>
+  
+    <p class="card-text"> {{ game.summary }} </p>
+    
+    <h1 id="review-heading"> Leave a Review </h1>
+
+    <div class="md-form">
+        <textarea type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
+        <label for="form7">Leave a review...</label>
+    </div>      
+</div>
+<!-- Jumbotron -->
+
