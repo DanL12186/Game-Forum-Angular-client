@@ -77,12 +77,13 @@ export class GameDetailComponent implements OnInit {
       description: this.description
     };
     console.log(review);
-    // Change user id
+    //Change user id
     await this.httpClient
       .post(
         `http://localhost:8080/reviews/add/game=${this.game.id}/user=12`,
         review
       )
       .toPromise();
+    location.reload();
   }
 }
