@@ -19,10 +19,8 @@ export class GameCardTableComponent implements OnInit {
   constructor(private gamePageService : GamePageService) { }
 
   ngOnInit() {
-    console.log("game-card-table component is initializing");
     this.gameSubscription = this.gamePageService.gamesArray
       .subscribe(data => {
-        console.log("game-card-table gameArray:");
         this.gameArray = data;
       });
   }

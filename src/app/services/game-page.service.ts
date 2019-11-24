@@ -39,8 +39,6 @@ export class GamePageService {
           newGamesArray.push(data)
         });
     });
-    console.log("New Games Array (getGame())");
-    console.log(newGamesArray);
     this.gamesSubject.next(newGamesArray);
   }
 }

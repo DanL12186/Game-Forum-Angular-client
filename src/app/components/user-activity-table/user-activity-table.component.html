@@ -15,26 +15,35 @@
 <div class="tab-content" id="myTabContent">
     <div *ngIf="selected == 'Reviews'" class="tab-pane fade show active" id="home" role="tabpanel"
         aria-labelledby="home-tab">
+        Nothing to See here
+
+    </div>
+
+    <div *ngIf="selected == 'Comments'" class="tab-pane fade show active" id="profile" role="tabpanel"
+        aria-labelledby="profile-tab">
         <div class="row p-3">
             <table mdbTable #tableEl="mdbTable" borderless="true" small="true" stickyHeader="true" hover="true"
                 class="z-depth-1">
-                <tbody mdbTableCol *ngFor="let comment of (commentsArray)">
+                <tbody mdbTableCol *ngFor="let comment of (commentArray)">
                     <tr>
                         <td class="px-4">
                             <mdb-card>
                                 <div class="row">
-                                    <div class="col-sm-4 d-flex justify-content-center">
+                                    <div class="col-md-2 d-flex justify-content-center pr-0">
                                         <!--Card image-->
-                                        <img src="{{comment.user.profilePic}}" alt="thumbnail"
-                                            class="img-thumbnail mx-auto my-auto" style="width: 200px">
+                                        <img *ngIf="comment.user.profilePic == null" src="https://via.placeholder.com/100"
+                                            alt="thumbnail" class="img-thumbnail rounded mx-auto my-auto" style="width : 100px; height : 100px">
+                                        <img *ngIf="comment.user.profilePic != null" src="{{comment.user.profilePic}}"
+                                            alt="thumbnail" class="img-thumbnail rounded mx-auto my-auto" style="width : 100px; height : 100px">
                                     </div>
-                                    <div class="col-sm-8">
+                                    <div class="col-md-8">
                                         <!--Card content-->
                                         <mdb-card-body>
 
                                             <!--Title-->
                                             <mdb-card-title>
-                                                <h4 class="border-dark border-bottom"><strong>{{comment.user.username}}</strong>
+                                                <h4 class="border-dark border-bottom">
+                                                    <strong>{{comment.user.username}}</strong>
                                                 </h4>
                                             </mdb-card-title>
 
@@ -53,20 +62,7 @@
                 </tbody>
             </table>
         </div>
-
     </div>
-
-    <div *ngIf="selected == 'Comments'" class="tab-pane fade show active" id="profile" role="tabpanel"
-        aria-labelledby="profile-tab">Food truck fixie
-        locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit,
-        blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
-        Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum
-        PBR. Homo nostrud organic, assumenda labore <strong>Comments</strong>aesthetic magna delectus mollit. Keytar
-        helvetica VHS
-        salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
-        sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
-        stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</div>
-
     <div *ngIf="selected == 'Friends'" class="tab-pane fade show active" id="contact" role="tabpanel"
         aria-labelledby="contact-tab">Etsy mixtape
         wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack

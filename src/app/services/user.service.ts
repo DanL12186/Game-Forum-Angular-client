@@ -2,9 +2,13 @@ import { Injectable } from '@angular/core';
 // ----- Routing/HTTP
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+// ----- RXJS
+import { Subject, Observable, Subscription } from 'rxjs';
 // ----- Modules
 import { NewUser } from '../modules/newUser';
 import { Credentials } from '../modules/credentials';
+import { Comment } from '../modules/comment';
+import { Review } from '../modules/review';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +17,19 @@ export class UserService {
   public token : string;
   public currentUsername : string;
 
-  public commentsArray;
+  // ----- Setting up an observable array of comments for user-profile page.
+  public commentsSubject : Subject<Comment[]> = new Subject();
+  public commentsArray : Observable<Comment[]>
+    = this.commentsSubject.asObservable();
+
+  public commentSubscription : Subscription;
+
+  // ----- Setting up an observable array of reviews for user-profile page.
+  public reviewsSubject : Subject<Review[]> = new Subject();
+  public reviewsArray : Observable<Review[]>
+    = this.reviewsSubject.asObservable();
+
+  public reviewSubscription : Subscription;
 
   // Mock code of a user instance to write user-profile w/o functioning
   // get http call. 
@@ -64,13 +80,32 @@ export class UserService {
       })
   }
 
-  getComments(userid : number, page: number) {
+  async getComments(userid : number, page: number) {
     const url = 'http://localhost:8080/comments/user='+ userid + '/page='+ page;
+    let newCommentsArray : Comment[] = [];
 
-    this.httpClient.get(url)
-    .subscribe(data => {
-      console.log(data);
-      this.commentsArray = data;
-    })
+    if (this.commentSubscription) {
+      this.commentSubscription.unsubscribe();
+    }
+
+    this.commentSubscription = await this.httpClient.get(url)
+      .subscribe((data : Comment[]) => {
+        data.forEach( (data : Comment) => {
+          newCommentsArray.push(data)
+        });
+        this.commentsSubject.next(newCommentsArray);
+      })
+  }
+
+  async getReviews(userid : number, page : number) {
+    const url = 'http://localhost:8080/reviews/user='+ userid + '/page='+ page;
+    let newReviewsArray : Review[] = [];
+
+    if (this.reviewSubscription) {
+      this.reviewSubscription.unsubscribe();
+    }
+
+    this.reviewSubscription = await this.httpClient.get(url)
+      .subscribe((data : ))
   }
 }
