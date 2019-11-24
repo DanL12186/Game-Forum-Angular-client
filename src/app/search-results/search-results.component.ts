@@ -21,8 +21,8 @@ export class SearchResultsComponent implements OnInit {
     const url : string = `http://localhost:8080/IGDB/search`;
     
     const gameSearchResults = await this.httpClient
-                                    .post(url, `"${gameTitle}"`)
-                                    .toPromise()
+                                        .post(url, `"${gameTitle}"`)
+                                        .toPromise()
 
     return gameSearchResults;
   }
