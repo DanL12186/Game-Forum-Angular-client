@@ -38,6 +38,9 @@ export class NavbarComponent implements OnInit {
         console.log(value)
         this.router.navigateByUrl('/sign-up')
         break;
+      case 1 : 
+        console.log(value)
+        this.router.navigateByUrl('/user-profile')
     }
   }
 

@@ -7,7 +7,6 @@ import { UserService } from 'src/app/services/user.service';
 // ----- Modules
 import { NewUser } from 'src/app/modules/newUser';
 
-
 @Component({
   selector: 'app-sign-up-card',
   templateUrl: './sign-up-card.component.html',

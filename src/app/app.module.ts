@@ -17,6 +17,9 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
 // ----- Services
 import { UserService } from './services/user.service';
 import { GamePageService } from './services/game-page.service';
+import { UserProfileCardComponent } from './components/user-profile-card/user-profile-card.component';
+import { UserProfilePageComponent } from './pages/user-profile-page/user-profile-page.component';
+import { UserActivityTableComponent } from './components/user-activity-table/user-activity-table.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { GamePageService } from './services/game-page.service';
     NavbarComponent,
     SignUpCardComponent,
     MainPageComponent,
-    SignUpPageComponent
+    SignUpPageComponent,
+    UserProfileCardComponent,
+    UserProfilePageComponent,
+    UserActivityTableComponent
   ],
   imports: [
     BrowserModule,
