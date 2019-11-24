@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Game } from '../shared/modules/game';
 
 @Component({
   selector: 'app-game-detail',
@@ -9,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GameDetailComponent implements OnInit {
   public game : Object;
+  public backendGameId : Object;
+  public backendId : number = 2;
 
   constructor(private route: ActivatedRoute, private httpClient: HttpClient) { }
 
@@ -24,8 +27,39 @@ export class GameDetailComponent implements OnInit {
     return searchResults[0];
   }
 
+  async getGameIdByIgdbId() {
+    const gameUrl: string = `http://localhost:8080/games/${this.game.id}`
+    const game = await this.httpClient.get(gameUrl).toPromise();
+    return game.id;
+  }
+
+  async getReviews() {
+    const gameId = await this.getGameIdByIgdbId();
+    const reviews = await this.httpClient.get(`http://localhost:8080/reviews/game=${gameId}/page=0`).toPromise();
+    this.game['reviews'] = reviews
+
+    console.log("reviews", reviews)
+  }
+
+  loggedIn() {
+    return true; //stand-in
+    //return localStorage.get("currentUser")
+  }
+
   async ngOnInit() {    
     this.game = await this.findGamebyName();
+
+    this.getReviews()
+    
+    //checking to see if it exists
+    const game: Game = { "igdbId" : this.game.id }
+    const backend = await this.httpClient.post("/games", game);
+
+    if (backend) {
+      this.backendGameId = backend;
+    } else {
+      await this.httpClient.get(`http://localhost:8080/games/${this.game.id}`).toPromise();
+    }
   }
 
 }

@@ -19,6 +19,7 @@ import { GameCardTableComponent } from './shared/components/game-card-table/game
 import { MainPageComponent } from './shared/pages/main-page/main-page.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { CommentComponent } from './comment/comment.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     GameCardTableComponent,
     MainPageComponent,
     GameDetailComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    CommentComponent
   ],
   imports: [
     HttpClientModule,
