@@ -1,55 +1,56 @@
 <!--Navbar-->
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
 
-    <mdb-navbar-brand>
-      <a class="navbar-brand" href="/main-page">
-        <img src="/favicon.ico" height="32" class="d-inline-block align-top" alt="">
-      </a>
-    </mdb-navbar-brand>
-  
-    <mdb-icon fas icon="angle-left" size="lg" class="text-white mr-auto d-flex d-md-none align-self-center"></mdb-icon>
-  
-    <!-- Collapsible content -->
-    <links>
-  
-      <!-- Links -->
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link waves-light" href="/main-page" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-light" mdbWavesEffect routerLink="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-light" mdbWavesEffect routerLink="/signup">Signup</a>
-        </li>
-  
-        <!-- Dropdown Menu -->
-        <li class="nav-item dropdown" dropdown>
+  <mdb-navbar-brand>
+    <a class="navbar-brand" href="/main-page">
+      <img src="/favicon.ico" height="32" class="d-inline-block align-top" alt="">
+    </a>
+  </mdb-navbar-brand>
 
-          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-            Tools <span class="caret"></span>
-          </a>
+  <mdb-icon fas icon="angle-left" size="lg" class="text-white mr-auto d-flex d-md-none align-self-center"></mdb-icon>
 
-          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Account Settings</a>
-            <a class="dropdown-item waves-light" mdbWavesEffect href="/games">Game Browser</a>
-            <div class="divider dropdown-divider"></div>
-            <a class="dropdown-item waves-light" mdbWavesEffect href="https://www.igdb.com/discover">IGDB Site</a>
-          </div>
-        </li>
-  
-      </ul>
-      <!-- Links -->
-  
-      <!-- Search form -->
-      <form class="form-inline waves-light" action="/search-results" method="GET" accept-charset="UTF-8" mdbWavesEffect>
-        <div class="md-form my-0">
-          <input type="text" name="search" required="required" autocomplete="off" class="form-control mr-sm-2" placeholder="Search">
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link waves-light" href="/main-page" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect routerLink="/signup">Signup</a>
+      </li>
+
+      <!-- Dropdown Menu -->
+      <li class="nav-item dropdown" dropdown>
+
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          Tools <span class="caret"></span>
+        </a>
+
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Account Settings</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect href="/games">Game Browser</a>
+          <div class="divider dropdown-divider"></div>
+          <a class="dropdown-item waves-light" mdbWavesEffect href="https://www.igdb.com/discover">IGDB Site</a>
         </div>
-      </form>
-    </links>
-    <!-- Collapsible content -->
-  
-  
-  </mdb-navbar>
+      </li>
+
+    </ul>
+    <!-- Links -->
+
+    <!-- Search form -->
+    <form (ngSubmit)="searchGames()" class="form-inline waves-light" mdbWavesEffect>
+      <div class="md-form my-0">
+        <input [(ngModel)]="search" type="text" name="search" required="required" autocomplete="off"
+          class="form-control mr-sm-2" placeholder="Search">
+      </div>
+    </form>
+  </links>
+  <!-- Collapsible content -->
+
+
+</mdb-navbar>

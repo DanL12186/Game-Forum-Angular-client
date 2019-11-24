@@ -20,7 +20,7 @@ import { MainPageComponent } from "./shared/pages/main-page/main-page.component"
 import { GameDetailComponent } from "./game-detail/game-detail.component";
 import { SearchResultsComponent } from "./search-results/search-results.component";
 import { CommentComponent } from "./comment/comment.component";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -45,6 +45,7 @@ import { FormsModule } from "@angular/forms";
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [],
