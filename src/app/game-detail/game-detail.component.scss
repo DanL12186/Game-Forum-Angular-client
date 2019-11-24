@@ -1,12 +1,24 @@
-.jumbotron, #review-heading {
-    margin-top: 3em;
+.jumbotron,
+#review-heading {
+  margin-top: 3em;
 }
 
 mdb-card-img {
-    max-width: 25%;
-    margin: auto;
+  max-width: 25%;
+  margin: auto;
+  margin-top: 15px;
 }
 
 .review-text {
-    font-size: 1em;
+  font-size: 1em;
+}
+
+.md-form button {
+  background: transparent;
+  font-size: 1.2rem;
+  font-weight: bold;
+  height: 45px;
+  border: 3px solid black;
+  border-radius: 5px;
+  margin: 15px 0;
 }

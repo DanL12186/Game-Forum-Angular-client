@@ -3,80 +3,80 @@
 <!-- Jumbotron -->
 <div class="jumbotron text-center container">
 
-    <!-- Title -->
-    <h4 class="card-title h4 pb-2"><strong> {{ game.name }} </strong></h4>
-  
-    <!-- Card image -->
-    <div class="view overlay my-4">
-      <img src="{{ game.cover.url.replace('thumb', 'screenshot_huge') }}" class="img-fluid" alt="{{ game.name }}">
-      <a href="{{ game.url }}" target="_blank" rel="noopener noreferrer">
-        <div class="mask rgba-white-slight"></div>
-      </a>
-    </div>
+  <!-- Title -->
+  <h4 class="card-title h4 pb-2"><strong> {{ game.name }} </strong></h4>
 
-    <div class="row">
-        <div class="col-md-12">
-            <mdb-badge *ngFor="let theme of (game.themes)" class="m-1" pill="true"
-                info="true">{{theme.name}}
-            </mdb-badge>
-        </div>
-    </div>
+  <!-- Card image -->
+  <div class="view overlay my-4">
+    <img src="{{ game.cover.url.replace('thumb', 'screenshot_huge') }}" class="img-fluid" alt="{{ game.name }}">
+    <a href="{{ game.url }}" target="_blank" rel="noopener noreferrer">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <mdb-badge *ngFor="let gameMode of (game.game_modes)" class="m-1" pill="true"
-                success="true">{{gameMode.name}}
-            </mdb-badge>
-        </div>
+  <div class="row">
+    <div class="col-md-12">
+      <mdb-badge *ngFor="let theme of (game.themes)" class="m-1" pill="true" info="true">{{theme.name}}
+      </mdb-badge>
     </div>
-  
-    <h5 class="indigo-text h5 mb-4"> {{ game.release_date }} </h5>
-  
-    <p class="card-text"> {{ game.summary }} </p>
-    
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <mdb-badge *ngFor="let gameMode of (game.game_modes)" class="m-1" pill="true" success="true">{{gameMode.name}}
+      </mdb-badge>
+    </div>
+  </div>
+
+  <h5 class="indigo-text h5 mb-4"> {{ game.release_date }} </h5>
+
+  <p class="card-text"> {{ game.summary }} </p>
+
+  <div *ngIf="loggedIn()">
     <h1 id="review-heading"> Leave a Review </h1>
-
-    <div *ngIf="game.reviews">
-        <h1> Reviews </h1>
-
-        <div *ngFor="let review of game.reviews">
-
-          <mdb-card class='thin'>
-              <!--Card image-->
-              <mdb-card-img src="https://ecsphilly.org/app/uploads/2017/01/blank-profile-picture-973460_960_720.jpg" alt="Card image cap"></mdb-card-img>
-              <!--Card content-->
-              <mdb-card-body>
-            
-                <!--Title-->
-                <mdb-card-title>
-                    <a href="/reviews/{{ review.id }}/comments">
-                      <h2> {{ review.user.username }}'s review: </h2>
-                    </a>
-                </mdb-card-title>
-            
-                <!--Text-->
-                <div> 
-                    <h3> Rating: {{ review.rating }}%</h3>
-                </div>
-
-                <div> 
-                    <h4 class='review-text'>{{ review.description }}</h4>
-                </div>
-            
-              </mdb-card-body>
-            </mdb-card>
-        </div>
-    </div>
-
-      <div *ngIf="loggedIn()">
-        <form action="/reviews/add/game={{ backendId }}/user=9" method="POST" accept-charset="UTF-8" mdbWavesEffect>
-          <div class="md-form">
-            <textarea type="text" name="description" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
-            <label for="form7">Leave a review...</label>
-            <button for="form7" type="submit">Submit Review</button>
-          </div>      
-        </form>
+    <form (ngSubmit)="addReview()" mdbWavesEffect>
+      <div class="md-form">
+        <label>Rating</label>
+        <input [(ngModel)]="rating" type="number" id="rating" class="form-control" mdbInput>
       </div>
+      <div class="md-form">
+        <textarea [(ngModel)]="description" type="text" name="description" id="form7"
+          class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
+        <label for="form7">Leave a review...</label>
+        <button for="form7" type="submit">Submit Review</button>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="game.reviews">
+    <h1> Reviews </h1>
+    <div *ngFor="let review of game.reviews">
+      <mdb-card class='thin'>
+        <!--Card image-->
+        <mdb-card-img src="https://ecsphilly.org/app/uploads/2017/01/blank-profile-picture-973460_960_720.jpg"
+          alt="Card image cap"></mdb-card-img>
+        <!--Card content-->
+        <mdb-card-body>
+
+          <!--Title-->
+          <mdb-card-title>
+            <a href="/reviews/{{ review.id }}/comments">
+              <h2> {{ review.user.username }}'s review: </h2>
+            </a>
+          </mdb-card-title>
+
+          <!--Text-->
+          <div>
+            <h3> Rating: {{ review.rating }}%</h3>
+          </div>
+
+          <div>
+            <h4 class='review-text'>{{ review.description }}</h4>
+          </div>
+
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </div>
 </div>
 <!-- Jumbotron -->
-
