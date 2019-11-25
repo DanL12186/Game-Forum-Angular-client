@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Comment } from 'src/app/modules/comment';
 import { Subscription } from 'rxjs';
+import { Review } from 'src/app/modules/review';
+import { Friend } from 'src/app/modules/friend';
 
 @Component({
   selector: 'app-user-activity-table',
@@ -15,6 +17,11 @@ export class UserActivityTableComponent implements OnInit {
   public commentArray : Comment[];
   public commentSubscription : Subscription;
 
+  public reviewArray : Review[];
+  public reviewSubscription : Subscription;
+
+  public friendArray : Friend[];
+  public friendSubscription : Subscription;
 
   constructor(
     private userService : UserService
@@ -24,6 +31,18 @@ export class UserActivityTableComponent implements OnInit {
     this.commentSubscription = this.userService.commentsArray
       .subscribe((data : Comment[]) => {
         this.commentArray = data;
+        console.log(data);
+      });
+
+    this.reviewSubscription = this.userService.reviewsArray
+      .subscribe((data : Review[]) => {
+        this.reviewArray = data;
+        console.log(data);
+      });
+
+    this.friendSubscription = this.userService.friendArray
+      .subscribe((data : Friend[]) => {
+        this.friendArray = data;
         console.log(data);
       });
   }

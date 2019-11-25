@@ -16,6 +16,7 @@ export class UserProfilePageComponent implements OnInit {
   ngOnInit() {
     this.userService.getComments(this.userService.userId, 0);
     this.userService.getReviews(this.userService.userId, 0);
+    this.userService.getFriends(this.userService.userId);
 
   }
 

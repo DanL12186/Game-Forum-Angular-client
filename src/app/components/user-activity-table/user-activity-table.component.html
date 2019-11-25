@@ -1,22 +1,67 @@
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+<ul class="nav nav-tabs mx-4" id="myTab" role="tablist">
     <li class="nav-item">
         <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home"
             (click)="select('Reviews')">Reviews</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" role="tab" aria-controls="profile"
+        <a class="nav-link active" id="profile-tab" data-toggle="tab" role="tab" aria-controls="profile"
             (click)="select('Comments')">Comments</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" role="tab" aria-controls="contact"
+        <a class="nav-link active" id="contact-tab" data-toggle="tab" role="tab" aria-controls="contact"
             (click)="select('Friends')">Friends</a>
     </li>
 </ul>
-<div class="tab-content" id="myTabContent">
+<div class="tab-content mx-4" id="myTabContent">
     <div *ngIf="selected == 'Reviews'" class="tab-pane fade show active" id="home" role="tabpanel"
         aria-labelledby="home-tab">
-        Nothing to See here
+        <div class="row p-3">
+            <table mdbTable #tableEl="mdbTable" borderless="true" small="true" stickyHeader="true" hover="true"
+                class="z-depth-1">
+                <tbody mdbTableCol *ngFor="let review of (reviewArray)">
+                    <tr>
+                        <td class="px-4">
+                            <mdb-card>
+                                <div class="row">
+                                    <div class="col-md-2 d-flex justify-content-center pr-0">
+                                        <!--Card image-->
+                                        <img *ngIf="review.user.profilePic == null"
+                                            src="https://via.placeholder.com/100" alt="thumbnail"
+                                            class="img-thumbnail rounded mx-auto my-auto"
+                                            style="width : 100px; height : 100px">
+                                        <img *ngIf="review.user.profilePic != null" src="{{review.user.profilePic}}"
+                                            alt="thumbnail" class="img-thumbnail rounded mx-auto my-auto"
+                                            style="width : 100px; height : 100px">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <!--Card content-->
+                                        <mdb-card-body>
 
+                                            <!--Title-->
+                                            <mdb-card-title>
+                                                <h4 class="border-dark border-bottom">
+                                                    <strong>{{review.user.username}}</strong>
+                                                </h4>
+                                            </mdb-card-title>
+
+                                            <!--Text-->
+                                            <div class="row">
+                                                <div class="col-md-9 mb-4">
+                                                    {{review.description}}
+                                                </div>
+                                                <div class="col-md-3">
+                                                    rating : {{review.rating}}
+                                                </div>
+                                            </div>
+                                        </mdb-card-body>
+                                    </div>
+                                </div>
+                            </mdb-card>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div *ngIf="selected == 'Comments'" class="tab-pane fade show active" id="profile" role="tabpanel"
@@ -31,10 +76,13 @@
                                 <div class="row">
                                     <div class="col-md-2 d-flex justify-content-center pr-0">
                                         <!--Card image-->
-                                        <img *ngIf="comment.user.profilePic == null" src="https://via.placeholder.com/100"
-                                            alt="thumbnail" class="img-thumbnail rounded mx-auto my-auto" style="width : 100px; height : 100px">
+                                        <img *ngIf="comment.user.profilePic == null"
+                                            src="https://via.placeholder.com/100" alt="thumbnail"
+                                            class="img-thumbnail rounded mx-auto my-auto"
+                                            style="width : 100px; height : 100px">
                                         <img *ngIf="comment.user.profilePic != null" src="{{comment.user.profilePic}}"
-                                            alt="thumbnail" class="img-thumbnail rounded mx-auto my-auto" style="width : 100px; height : 100px">
+                                            alt="thumbnail" class="img-thumbnail rounded mx-auto my-auto"
+                                            style="width : 100px; height : 100px">
                                     </div>
                                     <div class="col-md-8">
                                         <!--Card content-->
@@ -64,12 +112,50 @@
         </div>
     </div>
     <div *ngIf="selected == 'Friends'" class="tab-pane fade show active" id="contact" role="tabpanel"
-        aria-labelledby="contact-tab">Etsy mixtape
-        wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack
-        lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard
-        locavore carles etsy salvia banksy hoodie helvetica.<strong>Friends</strong> DIY synth PBR banksy irony.
-        Leggings gentrify
-        squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie
-        etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog
-        stumptown. Pitchfork sustainable tofu synth chambray yr.</div>
+        aria-labelledby="contact-tab">
+        <div class="row p-3">
+            <table mdbTable #tableEl="mdbTable" borderless="true" small="true" stickyHeader="true" hover="true"
+                class="z-depth-1">
+                <tbody mdbTableCol *ngFor="let friend of (friendArray)">
+                    <tr>
+                        <td class="px-4">
+                            <mdb-card>
+                                <div class="row">
+                                    <div class="col-md-2 d-flex justify-content-center pr-0">
+                                        <!--Card image-->
+                                        <img *ngIf="friend.profilePic == null"
+                                            src="https://via.placeholder.com/100" alt="thumbnail"
+                                            class="img-thumbnail rounded mx-auto my-auto"
+                                            style="width : 100px; height : 100px">
+                                        <img *ngIf="friend.profilePic != null" src="{{friend.profilePic}}"
+                                            alt="thumbnail" class="img-thumbnail rounded mx-auto my-auto"
+                                            style="width : 100px; height : 100px">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <!--Card content-->
+                                        <mdb-card-body>
+
+                                            <!--Title-->
+                                            <mdb-card-title>
+                                                <h4 class="border-dark border-bottom">
+                                                    <strong>{{friend.username}}</strong>
+                                                </h4>
+                                            </mdb-card-title>
+
+                                            <!--Text-->
+                                            <div class="row">
+                                                <div class="col-md-12 mb-4">
+                                                </div>
+                                            </div>
+                                        </mdb-card-body>
+                                    </div>
+                                </div>
+                            </mdb-card>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
 </div>

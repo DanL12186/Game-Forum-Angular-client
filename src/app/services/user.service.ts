@@ -9,6 +9,7 @@ import { NewUser } from '../modules/newUser';
 import { Credentials } from '../modules/credentials';
 import { Comment } from '../modules/comment';
 import { Review } from '../modules/review';
+import { Friend } from '../modules/friend';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,13 @@ export class UserService {
     = this.reviewsSubject.asObservable();
 
   public reviewSubscription : Subscription;
+
+  //----- Setting up an observable array for of friends for user profile page.
+  public friendSubject : Subject<Friend[]> = new Subject();
+  public friendArray : Observable<Friend[]>
+    = this.friendSubject.asObservable();
+
+    public friendSubscription : Subscription;
 
   // Mock code of a user instance to write user-profile w/o functioning
   // get http call. 
@@ -91,7 +99,7 @@ export class UserService {
     this.commentSubscription = await this.httpClient.get(url)
       .subscribe((data : Comment[]) => {
         data.forEach( (data : Comment) => {
-          newCommentsArray.push(data)
+          newCommentsArray.push(data);
         });
         this.commentsSubject.next(newCommentsArray);
       })
@@ -106,6 +114,29 @@ export class UserService {
     }
 
     this.reviewSubscription = await this.httpClient.get(url)
-      .subscribe((data : ))
+      .subscribe((data : Review[]) => {
+        data.forEach( (data : Review) => {
+          newReviewsArray.push(data);
+        });
+        this.reviewsSubject.next(newReviewsArray);
+      });
+  }
+
+  async getFriends(userid : number) {
+    const url = 'http://localhost:8080/users/' + userid + '/friends';
+    let newFriendArray : Friend[] = [];
+
+    if (this.friendSubscription){
+      this.friendSubscription.unsubscribe();
+    }
+
+    this.friendSubscription = await this.httpClient.get(url)
+      .subscribe((data : Friend[]) => {
+        data.forEach(( data : Friend) => {
+          newFriendArray.push(data);
+        });
+        this.friendSubject.next(newFriendArray);
+      })
+    console.log(newFriendArray);
   }
 }
