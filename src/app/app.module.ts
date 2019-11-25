@@ -26,8 +26,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginComponent,
-    SignUpComponent,
     CarouselPopularComponent,
     CarouselNewComponent,
     NavbarComponent,
@@ -35,13 +33,19 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     MainPageComponent,
     GameDetailComponent,
     SearchResultsComponent,
-    CommentComponent
+    CommentComponent,
+    SignUpPageComponent,
+    UserProfilePageComponent,
+    SignUpCardComponent,
+    UserActivityTableComponent,
+    UserProfileCardComponent
   ],
   imports: [
     HttpClientModule,
     WavesModule,
     TableModule,
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
