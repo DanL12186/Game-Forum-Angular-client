@@ -1,0 +1,61 @@
+<mdb-card>
+    <mdb-card-body>
+        <!-- Sign-up form register -->
+        <form [formGroup]="signupForm">
+            <p class="h4 text-center text-primary py-4 border-bottom border-primary"><strong>Sign up</strong></p>
+
+            <!-- Sign-up input text -->
+            <div class="form-row my-4">
+                <div class="md-form col-sm-6 m-0">
+                    <input type="text" id="signupFormFirstName" formControlName="signupFormFirstName"
+                        class="form-control" mdbInput>
+                    <label for="signupFormFirstName" class="font-weight-light">First Name</label>
+                </div>
+
+                <div class="md-form col-sm-6 m-0">
+                    <input type="text" id="signupFormLastName" formControlName="signupFormLastName" class="form-control"
+                        mdbInput>
+                    <label for="signupFormLastName" class="font-weight-light">Last Name</label>
+                </div>
+            </div>
+
+            <!-- Sign-up input username -->
+            <div class="md-form">
+                <mdb-icon fas icon="user-circle" class="prefix blue-text"></mdb-icon>
+                <input type="email" id="signupFormUsername" formControlName="signupFormUsername" class="form-control"
+                    mdbInput>
+                <label for="signupFormUsername" class="font-weight-light">Username</label>
+            </div>
+
+            <!-- Sign-up input email -->
+            <div class="md-form">
+                <mdb-icon fas icon="envelope" class="prefix blue-text"></mdb-icon>
+                <input type="email" id="signupFormEmail" formControlName="signupFormEmail" class="form-control"
+                    mdbInput>
+                <label for="signupFormEmail" class="font-weight-light">E-mail</label>
+            </div>
+
+            <!-- Sign-up input password -->
+            <div class="md-form">
+                <mdb-icon fas icon="lock" class="prefix blue-text"></mdb-icon>
+                <input type="password" id="signupFormPassword" formControlName="signupFormPassword" class="form-control"
+                    mdbInput>
+                <label for="signupFormPassword" class="font-weight-light">Password</label>
+            </div>
+
+            <div class="text-center py-4 mt-3">
+                <button mdbBtn color="primary" class="waves-light" type="submit" (click)="register()"
+                    mdbWavesEffect>Register</button>
+            </div>
+
+            <hr>
+
+            <!-- Terms of service -->
+            <p class= "text-center">By clicking
+                <em>Register</em> you agree to our
+                <a href="" target="_blank">terms of service</a>
+            </p>
+        </form>
+        <!-- Sign-up form register -->
+    </mdb-card-body>
+</mdb-card>
