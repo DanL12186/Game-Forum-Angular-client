@@ -17,6 +17,7 @@ import { Credentials } from "../../modules/credentials";
 export class NavbarComponent implements OnInit {
   search: string;
   validationForm: FormGroup;
+  user: any;
 
   constructor(
     private router: Router,
@@ -52,6 +53,11 @@ export class NavbarComponent implements OnInit {
   }
   get passwordFormEx() {
     return this.validationForm.get("passwordInput");
+  }
+
+  goToProfile() {
+    this.user = this.userService.getUser();
+    this.router.navigate([`/user-profile/${this.user.id}`]);
   }
 
   async authenticate() {

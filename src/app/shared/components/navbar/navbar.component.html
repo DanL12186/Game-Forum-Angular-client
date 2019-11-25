@@ -25,6 +25,9 @@
         <a class="nav-link waves-light" mdbWavesEffect href="/sign-up">Signup</a>
       </li>
       <li *ngIf="isLoggedIn()" class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect (click)="goToProfile()">Profie</a>
+      </li>
+      <li *ngIf="isLoggedIn()" class="nav-item">
         <a class="nav-link waves-light" mdbWavesEffect (click)="logout()">Logout</a>
       </li>
 
