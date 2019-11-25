@@ -5,6 +5,8 @@ import { GameCardTableComponent } from "./shared/components/game-card-table/game
 import { MainPageComponent } from "./shared/pages/main-page/main-page.component";
 import { SearchResultsComponent } from "./search-results/search-results.component";
 import { CommentComponent } from "./comment/comment.component";
+import { SignUpPageComponent } from "./shared/pages/sign-up-page/sign-up-page.component";
+import { UserProfilePageComponent } from "./shared/pages/user-profile-page/user-profile-page.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/main-page", pathMatch: "full" },
@@ -21,7 +23,9 @@ const routes: Routes = [
   {
     path: "reviews/:id/comments",
     component: CommentComponent
-  }
+  },
+  { path: "sign-up", component: SignUpPageComponent },
+  { path: "user-profile", component: UserProfilePageComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

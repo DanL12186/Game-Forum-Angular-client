@@ -1,6 +1,7 @@
 export interface Friend {
-  username: string;
-  role: string;
-  profilePic: string;
-  id: number;
+    username : string,
+    role : string,
+    profilePic : string,
+    id : number
+
 }

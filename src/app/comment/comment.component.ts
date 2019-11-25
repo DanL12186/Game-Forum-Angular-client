@@ -13,6 +13,7 @@ export class CommentComponent implements OnInit {
   constructor(private route: ActivatedRoute, private httpClient: HttpClient) { }
 
   public comments: Comment[];
+  public description: string;
   public review;
 
   async getReviewById() {
@@ -23,15 +24,22 @@ export class CommentComponent implements OnInit {
 
   async getCommentsByReview(reviewId) {
     return await this.httpClient.get(`http://localhost:8080/comments/review=${reviewId}/page=0`).toPromise();
+  }
 
-    console.log(this.comments)
+  addComment() {
+    const uid  = 9
+    const rid  = this.review.id
+    const comment = { "description": this.description }
+
+    this.httpClient.post(`http://localhost:8080/comments/add/review=${rid}/user=${uid}`, comment).toPromise();
+
+    location.reload();
   }
 
   async ngOnInit() {
     this.review = await this.getReviewById();
 
     this.comments = await this.getCommentsByReview(this.review.id);
-
   }
 
 }
