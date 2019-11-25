@@ -2,37 +2,40 @@
 
 <div class='container'>
 
-    <div class='text-center text-white'>
-        <h1> Review by {{ review.user.username }}: </h1>
-        <h2> Rating: {{ review.rating }}% </h2>
-        <div class='text-white'> -"{{ review.description }}"</div>
-    </div>
+  <div class='text-center text-white review-card'>
+    <h1> Review by {{ review.user.username }}: </h1>
+    <h2> Rating: {{ review.rating }}% </h2>
+    <div class='text-white'> -"{{ review.description }}"</div>
+  </div>
 
-    <div *ngFor="let comment of comments">
-        <mdb-card class='thin'>
-            <!--Card image-->
-            <mdb-card-img src="https://ecsphilly.org/app/uploads/2017/01/blank-profile-picture-973460_960_720.jpg" alt="Card image cap"></mdb-card-img>
-            <!--Card content-->
-            <mdb-card-body>
-
-            <div class='text-center'>
-                <h4 class='review-text'>{{ comment.user.username }} says:</h4>
-                <p> "{{ comment.description }}"</p>
-            </div>
-        
-            </mdb-card-body>
-        </mdb-card>
-    </div>
-
-    
+  <div *ngIf="isLoggedIn()" class="add-comment">
     <h1 id="review-heading" class='text-white'> Leave a Comment </h1>
     <form (ngSubmit)="addComment()" mdbWavesEffect>
-        <div class="md-form">
-            <textarea [(ngModel)]="description" type="text" name="description" id="comment-form" class="text-white md-textarea md-textarea-auto form-control" mdbInput></textarea>
-            <label for="comment-form">Leave a comment...</label>
-            <button for="comment-form" type="submit">Submit Review</button>
-        </div>
+      <div class="md-form">
+        <textarea [(ngModel)]="description" type="text" name="description" id="comment-form"
+          class="text-white md-textarea md-textarea-auto form-control" mdbInput></textarea>
+        <label for="comment-form">Leave a comment...</label>
+        <button for="comment-form" type="submit">Submit Review</button>
+      </div>
     </form>
-    
+  </div>
+
+  <div *ngFor="let comment of comments">
+    <mdb-card class='thin'>
+      <!--Card image-->
+      <mdb-card-img src="https://ecsphilly.org/app/uploads/2017/01/blank-profile-picture-973460_960_720.jpg"
+        alt="Card image cap"></mdb-card-img>
+      <!--Card content-->
+      <mdb-card-body>
+
+        <div class='text-center'>
+          <h4 class='review-text'>{{ comment.user.username }} says:</h4>
+          <p> "{{ comment.description }}"</p>
+        </div>
+
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+
 
 </div>

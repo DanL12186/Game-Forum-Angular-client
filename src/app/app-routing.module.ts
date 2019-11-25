@@ -25,10 +25,10 @@ const routes: Routes = [
     component: CommentComponent
   },
   { path: "sign-up", component: SignUpPageComponent },
-  { path: "user-profile", component: UserProfilePageComponent }
+  { path: "user-profile/:id", component: UserProfilePageComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-}) 
+})
 export class AppRoutingModule {}

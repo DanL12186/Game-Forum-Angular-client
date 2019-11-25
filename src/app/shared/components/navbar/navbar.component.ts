@@ -38,6 +38,15 @@ export class NavbarComponent implements OnInit {
     this.router.navigate([`/search-results/${this.search}`]);
   }
 
+  isLoggedIn(): boolean {
+    return localStorage.getItem("token") != null;
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(["/main-page"]);
+  }
+
   get input() {
     return this.validationForm.get("usernameInput");
   }
@@ -45,12 +54,12 @@ export class NavbarComponent implements OnInit {
     return this.validationForm.get("passwordInput");
   }
 
-  authenticate() {
+  async authenticate() {
     let credentials: Credentials = {
       username: this.validationForm.controls["usernameInput"].value,
       password: this.validationForm.controls["passwordInput"].value
     };
 
-    this.userService.login(credentials);
+    await this.userService.login(credentials);
   }
 }

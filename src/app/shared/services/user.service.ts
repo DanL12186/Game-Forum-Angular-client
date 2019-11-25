@@ -11,6 +11,8 @@ import { Friend } from "../modules/friend";
 import { NewUser } from "../modules/newUser";
 import { Credentials } from "../modules/credentials";
 
+import * as jwt_decode from "jwt-decode";
+
 @Injectable({
   providedIn: "root"
 })
@@ -63,13 +65,16 @@ export class UserService {
   // Create credentials object using username and password from parameters
   // Pass credentials to url using http post method.
   // Server returns data and we print it.
-  login(credentials: Credentials) {
+  async login(credentials: Credentials) {
     const url = "http://localhost:8080/users/login";
-    this.httpClient.post(url, credentials).subscribe((data: string) => {
-      this.token = data;
-      if (data != null) {
-        this.currentUsername = credentials.username;
-      }
+    this.httpClient.post(url, credentials).subscribe(data => {
+      this.token = JSON.stringify(data);
+      localStorage.setItem("token", this.token);
+      this.currentUsername = credentials.username;
+
+      // Navigate to user profile
+      const user = this.getUser();
+      this.router.navigate([`/user-profile/${user.id}`]);
     });
   }
 
@@ -83,6 +88,16 @@ export class UserService {
 
       this.login(loginCredentials);
     });
+  }
+
+  logout() {
+    localStorage.removeItem("token");
+  }
+
+  getUser() {
+    const decoded = jwt_decode(localStorage.getItem("token"));
+    console.log(decoded);
+    return decoded;
   }
 
   async getComments(userid: number, page: number) {

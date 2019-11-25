@@ -17,12 +17,15 @@
       <li class="nav-item">
         <a class="nav-link waves-light" href="/main-page" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="!isLoggedIn()" class="nav-item">
         <a class="nav-link waves-light" mdbWavesEffect (click)="basicModal.show()" mdbWavesEffect data-toggle="modal"
           data-target="#basicExampleModal">Login</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="!isLoggedIn()" class="nav-item">
         <a class="nav-link waves-light" mdbWavesEffect href="/sign-up">Signup</a>
+      </li>
+      <li *ngIf="isLoggedIn()" class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect (click)="logout()">Logout</a>
       </li>
 
       <!-- Dropdown Menu -->

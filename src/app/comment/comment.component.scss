@@ -1,4 +1,23 @@
 mdb-card-img {
-    max-width: 25%;
-    margin: auto;
+  max-width: 25%;
+  margin: auto;
+}
+
+.review-card {
+  height: 200px;
+  border: 4px solid white;
+  border-radius: 7px;
+  margin: 55px auto;
+  padding: 15px;
+}
+
+.add-comment button {
+  margin: 10px;
+  background: transparent;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 10px;
+  color: white;
+  border: 3px solid white;
+  border-radius: 5px;
 }

@@ -3,6 +3,8 @@ import { ActivatedRoute } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { Game } from "../shared/modules/game";
 import { Review } from "../shared/modules/review";
+import { User } from "../shared/modules/User";
+import { UserService } from "../shared/services/user.service";
 
 @Component({
   selector: "app-game-detail",
@@ -15,8 +17,13 @@ export class GameDetailComponent implements OnInit {
   public backendId: number = 2;
   public rating: number;
   public description: string;
+  user: any;
 
-  constructor(private route: ActivatedRoute, private httpClient: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private httpClient: HttpClient,
+    private userService: UserService
+  ) {}
 
   async findGamebyName() {
     const gameTitle: string = this.route.snapshot.paramMap.get("name");
@@ -46,12 +53,13 @@ export class GameDetailComponent implements OnInit {
     console.log("reviews", reviews);
   }
 
-  loggedIn() {
-    return true; //stand-in
-    //return localStorage.get("currentUser")
+  loggedIn(): boolean {
+    return localStorage.getItem("token") != null;
   }
 
   async ngOnInit() {
+    this.user = this.userService.getUser();
+
     this.game = await this.findGamebyName();
 
     this.getReviews();
@@ -77,10 +85,10 @@ export class GameDetailComponent implements OnInit {
       description: this.description
     };
     console.log(review);
-    //Change user id
+
     await this.httpClient
       .post(
-        `http://localhost:8080/reviews/add/game=${this.game.id}/user=12`,
+        `http://localhost:8080/reviews/add/game=${this.game.id}/user=${this.user.id}`,
         review
       )
       .toPromise();
